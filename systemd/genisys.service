@@ -1,0 +1,14 @@
+[Unit]
+Description=Genisys DPI & VPN service
+After=network.target
+
+[Service]
+Type=simple
+User=genisys
+Group=genisys
+ExecStart=/opt/genisys/venv/bin/python -m genisys.core
+Restart=on-failure
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target
